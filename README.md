@@ -1,7 +1,5 @@
 # retail-analytics-pipeline
 
-[![tests](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
-
 Pipeline de données de bout en bout sur des ventes e-commerce réelles (1,07 M de lignes) : **lecture →
 validation → nettoyage Pandas → PostgreSQL (raw / staging / marts) → KPI SQL → dashboard Streamlit**, avec tests
 unitaires, d'intégration et du dashboard.

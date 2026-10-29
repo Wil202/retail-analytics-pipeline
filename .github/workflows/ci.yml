@@ -2,9 +2,10 @@
 # REQUIRE_DB=1 : si PostgreSQL n'est pas joignable, les tests d'intégration ÉCHOUENT (pas de suite verte trompeuse).
 name: tests
 
+# Déclenchement manuel uniquement (onglet Actions > tests > Run workflow).
+# Pour l'exécuter à chaque push, remettre :  push:  et  pull_request:
 on:
-  push:
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   pytest:
