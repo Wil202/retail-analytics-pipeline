@@ -1,0 +1,33 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Données : le brut UCI (43 Mo) et les sorties ne sont pas versionnés.
+# Seul l'échantillon synthétique (petit, reproductible) l'est.
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/reports/*
+!data/reports/.gitkeep
+
+# Outils
+.ipynb_checkpoints/
+.streamlit/secrets.toml
+.DS_Store
+.idea/
+.vscode/
+pgdata/

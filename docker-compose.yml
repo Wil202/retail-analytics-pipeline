@@ -1,0 +1,23 @@
+# PostgreSQL local pour le pipeline. Les identifiants viennent de .env (voir .env.example).
+# Usage : docker compose up -d   puis   docker compose ps
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: retail-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?définir POSTGRES_USER dans .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?définir POSTGRES_PASSWORD dans .env}
+      POSTGRES_DB: ${POSTGRES_DB:-retail}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/init-test-db.sql:/docker-entrypoint-initdb.d/01-init-test-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:

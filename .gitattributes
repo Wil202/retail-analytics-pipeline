@@ -1,0 +1,3 @@
+# Le CSV d'échantillon est comparé octet pour octet à la sortie du générateur (tests + CI) :
+# Git ne doit jamais convertir ses fins de ligne (CRLF), quel que soit le système.
+data/sample/*.csv -text
